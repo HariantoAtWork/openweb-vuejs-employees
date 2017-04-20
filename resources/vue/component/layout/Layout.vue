@@ -31,23 +31,35 @@
             <div 
                 ref="tagDrawer"
                 v-if="showTagDrawer"
-                class="tagDrawer u-box u-flex u-fill-width">
-                <div class="u-flex u-flex--shrink" style="width: 50%">
-                    <ul class="list skilltags-list">
-                        <li 
-                            @click="onRemoveSkillFromFilter(skillname)"
-                            class="skilltags-item" 
-                            v-for="skillname in querySkills">{{skillname}} <span class="fa fa-minus-square"></span></li>
-                    </ul>
-                </div>
-                <div class="u-flex u-flex--shrink" style="width: 50%">
-                    <ul class="list skilltags-list">
-                        <li 
-                            @click="onAddSkillToFilter(skillname)"
-                            class="skilltags-item" 
-                            v-for="skillname in filteredSkills">{{skillname}} <span class="fa fa-plus-square"></span></li>
-                    </ul>
-                </div>
+                class="tagDrawer u-fill-width">
+
+                <table class="tagDrawer-table">
+                    <tr>
+                        <th><span class="fa fa-tags"></span>&nbsp;Enabled</th>
+                        <th><span class="fa fa-tags"></span>&nbsp;Available</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <ul class="list skilltags-list">
+                                <li 
+                                    @click="onRemoveSkillFromFilter(skillname)"
+                                    class="skilltags-item" 
+                                    v-for="skillname in querySkills">{{skillname}} <span class="fa fa-minus-square"></span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="list skilltags-list">
+                                <li 
+                                    @click="onAddSkillToFilter(skillname)"
+                                    class="skilltags-item" 
+                                    v-for="skillname in filteredSkills">{{skillname}} <span class="fa fa-plus-square"></span></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+
+                
             </div>
 
             <!-- employees-view -->
