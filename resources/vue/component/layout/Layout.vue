@@ -93,12 +93,14 @@
 
 
             skills () {
-                var list = this.employees;
+                var list = this.filteredEmployees;
                 var skills = [];
 
                 // iterate list and for attribute `skills` and 
                 _(list).forEach(function (obj, key) {
-                    if(obj.hasOwnProperty('skills') && Array.isArray(obj.skills)) {
+                    if(obj.hasOwnProperty('skills') 
+                        && Array.isArray(obj.skills)) {
+
                         skills = skills.concat(obj.skills)
                     }
                 })
@@ -112,16 +114,18 @@
 
             // filters
             filteredEmployees () {
-                var query = this.query;
+                var query       = this.query,
+                    querySkills = this.querySkills;
 
                 return this.employees.filter(function (item) {
                     let foundByQuery = this.foundByQuery(query, item);
-                    return Boolean(foundByQuery);
+                    let foundBySkills = this.foundBySkills(querySkills, item);
+                    return Boolean(foundByQuery * foundBySkills);
                 }.bind(this));
             },
 
             filteredSkills () {
-                return this.skills
+                return _.difference(this.skills, this.querySkills)
             },
 
         },
@@ -157,7 +161,20 @@
                         break; // break for-loop
                     }
                 }
-                return found;
+                return Boolean(found);
+            },
+
+            foundBySkills (querySkills, employeeItem) {
+                var found = true;
+                if(employeeItem.hasOwnProperty('skills') 
+                    && Array.isArray(employeeItem.skills)) {
+
+                    _.forEach(querySkills, function (skill) {
+                        let foundIndex = employeeItem.skills.indexOf(skill);
+                        found *= (foundIndex > -1)
+                    })
+                }
+                return Boolean(found);
             },
 
             // Events
