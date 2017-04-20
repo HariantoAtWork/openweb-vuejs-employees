@@ -2,11 +2,11 @@
 	<section class="employee-view">
 		<header class="employees-item">
 			<div class="avatar">
-			    <img class="avatar-circle" :src="item.profileImage" alt="">
+			    <img class="avatar-circle" :src="employee.profileImage" alt="">
 			</div>
 			<div class="u-flex">
-			    <div class="employer-name">{{ item.name }}</div>
-			    <div class="employer-role">{{ item.role }}</div>
+			    <div class="employer-name">{{ employee.name }}</div>
+			    <div class="employer-role">{{ employee.role }}</div>
 			</div>
 			<div>
 			    <span class="fa fa-chevron-right"></span>
@@ -14,3 +14,21 @@
 		</header>
 	</section>
 </template>
+
+<script>
+	import './Employee.scss'
+
+	export default {
+		name: 'Employee',
+		props: {
+			onViewEmployees: {
+				type: Function,
+				required: true
+			},
+			employee: {
+				type: Object,
+				default: {}
+			}
+		},
+	}
+</script>

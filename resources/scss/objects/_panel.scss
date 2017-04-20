@@ -1,0 +1,37 @@
+.panel {
+	// .panel-view
+	&-view {
+		width: auto;
+		height: inherit;
+		white-space: nowrap;
+		overflow-x: hidden;
+		overflow-y: hidden;
+		text-align: left;
+	}
+
+	// .panel-list
+	&-list {
+		width: auto;
+		height: inherit;
+		margin: 0;
+		padding: 0;
+		cursor: default;
+		font-size: 0;
+		white-space: nowrap;
+		transition: transform 0.4s ease-out;
+	}
+	
+	// .panel-tab
+	&-tab {
+		display: inline-block;
+		width: 100%;
+		height: inherit;
+		margin: 0;
+		// list-style-type: none;
+		vertical-align: top;
+		font-size: 1.6rem;
+		// text-align: left;
+		white-space: normal;
+	}
+
+}
