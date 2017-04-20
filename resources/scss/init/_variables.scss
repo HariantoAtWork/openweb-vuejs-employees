@@ -1,14 +1,12 @@
 /* Name that color - http://chir.ag/projects/name-that-color */
 /* colours */
-$colorMineShaft: #282828;
-$colorKingfisherDaisy: #280096; // logo colour
-$colorDefault: $colorMineShaft;
-$colorLogo: $colorKingfisherDaisy;
+$colorJuniper: #649092;
+$colorGenoa: #17676b; // dark green
+$colorSushi: #95c23d; // light green
+$colorWhite: #FFFFFF; // logo colour
+$colorDefault: $colorJuniper;
+$colorLogo: $colorWhite;
 
 /* fonts */
-$fontRoboto: 'Roboto', sans-serif;
-$fontMontserrat: 'Montserrat', sans-serif;
-$fontOswald: 'Oswald', sans-serif;
-$fontRelativeBook: "relative-book", sans-serif;
-$fontRelativeBold: "relative-bold", sans-serif;
-$fontDefault: $fontMontserrat;
+$fontOpensans: 'Open Sans', sans-serif;
+$fontDefault: $fontOpensans;
