@@ -1,5 +1,8 @@
 .layout {
+	// layout-header
 	&-header {
+		position: relative;
+
 		background-color: $colorGenoa;
 		background: -webkit-linear-gradient($colorGenoa, $colorSushi); /* For Safari 5.1 to 6.0 */
 		background: -o-linear-gradient($colorGenoa, $colorSushi); /* For Opera 11.1 to 12.0 */
@@ -9,10 +12,28 @@
 		padding: 4px;
 	}
 
+	// layout-title
+	&-title {
+		position: absolute;
+		top: 8px;
+		left: 122px;
+
+		margin: 0;
+		padding: 0;
+		font-family: $fontLobster;
+	}
+
 	.logo {
+		position: relative;
+		top: 3px;
+
 		height: 50px;
 		width: auto;
 	}
+}
+
+.main-overflow {
+	background-color: $colorGenoa;
 }
 
 .search {
@@ -40,10 +61,14 @@
 		}
 	}
 	.button {
+		width: 40px;
+		height: 40px;
 		border: 1px solid white;
+		margin-left: 4px;
+
 		background-color: transparent;
 		color: white;
-		margin-left: 4px;
+		font-size: 16px;
 	}
 }
 
@@ -104,4 +129,37 @@
 
 	background-color: $colorJuniper;
 	color: white;
+}
+
+.searchbytag {
+	padding: 4px;
+
+	background-color: $colorJuniper;
+	color: white;
+	font-size: 11px;
+	text-transform: uppercase;
+
+	// searchbytag-label
+	&-label {
+		margin-right: 8px;
+	}
+	// searchbytag-counter
+	&-counter {
+		color: $colorSushi;
+		font-size: 16px;
+	}
+	.button {
+		width: 40px;
+		height: 40px;
+		border: 1px solid white;
+		margin-left: 4px;
+
+		background-color: transparent;
+		color: white;
+		font-size: 16px;
+	}
+}
+
+.tagDrawer {
+	position: absolute;
 }

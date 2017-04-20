@@ -2,6 +2,7 @@
     <div class="layout u-box u-box--column vp">
         <header class="layout-header">
             <img class="logo" src="img/logo-tr.png" alt="logo">
+            <h1 class="layout-title">Employees</h1>
         </header>
         <div class="search u-box u-flex--shrink">
             <input 
@@ -12,40 +13,68 @@
                 <span class="fa fa-search" aria-hidden="true"></span>
             </button>
         </div>
-        <div>
-            <ul class="list skilltags-list">
-                <li 
-                    @click="onRemoveSkillFromFilter(skillname)"
-                    class="skilltags-item" 
-                    v-for="skillname in querySkills">{{skillname}} <span class="fa fa-minus-square"></span></li>
-            </ul>
+        <div class="searchbytag u-box u-box--align-center u-flex--shrink">
+            <span class="searchbytag-label">Search By Tag: </span>
+            <span class="u-flex"><span class="searchbytag-counter">#{{ querySkills.length }}</span></span>
+            <button 
+                @click="onToggleTagDrawer"
+                class="button">
+                <span v-if="!showTagDrawer" class="fa fa-tags"></span>
+                <span v-else class="fa fa-close"></span>
+            </button>
         </div>
-        <div>
-            <ul class="list skilltags-list">
-                <li 
-                    @click="onAddSkillToFilter(skillname)"
-                    class="skilltags-item" 
-                    v-for="skillname in filteredSkills">{{skillname}} <span class="fa fa-plus-square"></span></li>
-            </ul>
-        </div>
-        <div v-scrollbar class="u-flex u-box u-overflow-y scrollbar employees-view">
-            <ul class="list employees-list u-flex">
-                <li 
-                    class="u-box u-box--align-center employees-item"
-                    v-for="item in filteredEmployees">
-                    <div class="avatar">
-                        <img class="avatar-circle" :src="item.profileImage" alt="">
-                    </div>
-                    <div class="u-flex">
-                        <div class="employer-name">{{ item.name }}</div>
-                        <div class="employer-role">{{ item.role }}</div>
-                    </div>
-                    <div>
-                        <span class="fa fa-chevron-right"></span>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <main 
+            ref="main-overflow"
+            v-scrollbar 
+            class="u-flex main-overflow u-overflow-y scrollbar">
+            <!-- tagDrawer -->
+            <div 
+                ref="tagDrawer"
+                v-if="showTagDrawer"
+                class="tagDrawer u-box u-flex u-fill-width">
+                <div class="u-flex u-flex--shrink" style="width: 50%">
+                    <ul class="list skilltags-list">
+                        <li 
+                            @click="onRemoveSkillFromFilter(skillname)"
+                            class="skilltags-item" 
+                            v-for="skillname in querySkills">{{skillname}} <span class="fa fa-minus-square"></span></li>
+                    </ul>
+                </div>
+                <div class="u-flex u-flex--shrink" style="width: 50%">
+                    <ul class="list skilltags-list">
+                        <li 
+                            @click="onAddSkillToFilter(skillname)"
+                            class="skilltags-item" 
+                            v-for="skillname in filteredSkills">{{skillname}} <span class="fa fa-plus-square"></span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- employees-view -->
+            <div 
+                ref="employees-view"
+                v-show="!showTagDrawer"
+                class="u-flex u-box  employees-view">
+                <ul class="list employees-list u-flex">
+                    <li 
+                        class="u-box u-box--align-center employees-item"
+                        v-for="item in filteredEmployees">
+                        <div class="avatar">
+                            <img class="avatar-circle" :src="item.profileImage" alt="">
+                        </div>
+                        <div class="u-flex">
+                            <div class="employer-name">{{ item.name }}</div>
+                            <div class="employer-role">{{ item.role }}</div>
+                        </div>
+                        <div>
+                            <span class="fa fa-chevron-right"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </main>
+        
     </div>
 </template>
 
@@ -60,12 +89,17 @@
         name: 'Layout',
         data: () => ({
             query: '',
-            querySkills: []
+            querySkills: [],
+            showTagDrawer: false
         }),
         watch: {
             '$route' (to, from) {
                 let params = { name: to.params[0].substr(1) };
                 this.$store.dispatch("SET_ACTIVEPAGE", params);
+            },
+            showTagDrawer (newValue, oldValue) {
+                console.log('watch - showTagDrawer')
+                this.$refs['main-overflow'].scrollTop = 0;
             }
         },
         computed: {
@@ -191,6 +225,10 @@
                 if(foundIndex > -1) {
                     this.querySkills.splice(foundIndex,1);
                 }
+            },
+
+            onToggleTagDrawer () {
+                this.showTagDrawer = !this.showTagDrawer;
             }
 
         },
