@@ -1,0 +1,21 @@
+.scrollbar {
+	$accent: #F9D715;
+	$bg: #484848;
+
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: $bg;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: $accent;
+		border: 1px solid $bg;
+
+		&:hover {
+			background-color: white;
+		}
+	}
+}

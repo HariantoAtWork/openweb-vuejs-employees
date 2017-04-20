@@ -6,8 +6,7 @@ Vue.use(Vuex)
 // Initial state
 const state = {
 	activePage: 'home',
-    myTracks: {},
-    showOverlay: false
+    employees: []
 }
 
 // Actions
@@ -15,12 +14,10 @@ const actions = {
     SET_ACTIVEPAGE: ({ commit }, text) => {
         commit('SET_ACTIVEPAGE', text)
     },
-    // SET_TRACK: ({ commit }, { data }) => {
-    //     commit('SET_TRACK', { data })
-    // },
-    // SET_OVERLAY: ({ commit }, bool) => {
-    //     commit('SET_OVERLAY', bool)
-    // },
+    SET_EMPLOYEES: ({ commit }, list) => {
+        commit('SET_EMPLOYEES', list)
+    },
+
 }
 
 // Mutations
@@ -28,12 +25,10 @@ const mutations = {
     SET_ACTIVEPAGE: (state, text) => {
         state.activePage = text
     },
-    // SET_TRACK: (state, { data }) => {
-    //     state.myTracks = Object.assign(state.myTracks, data)
-    // },
-    // SET_OVERLAY: (state, bool) => {
-    //     state.showOverlay = bool
-    // },
+    SET_EMPLOYEES: (state, list) => {
+        state.employees = list
+    },
+
 }
 
 const store = new Vuex.Store({

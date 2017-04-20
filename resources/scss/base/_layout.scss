@@ -1,0 +1,107 @@
+.layout {
+	&-header {
+		background-color: $colorGenoa;
+		background: -webkit-linear-gradient($colorGenoa, $colorSushi); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient($colorGenoa, $colorSushi); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient($colorGenoa, $colorSushi); /* For Firefox 3.6 to 15 */
+		background: linear-gradient($colorGenoa, $colorSushi); /* Standard syntax */
+		color: white;
+		padding: 4px;
+	}
+
+	.logo {
+		height: 50px;
+		width: auto;
+	}
+}
+
+.search {
+	background-color: $colorJuniper;
+	padding: 4px;
+
+	.input {
+		background-color: transparent;
+		border: 0;
+		color: white;
+		border-bottom: 1px solid darken(white, 20%);
+		font-size: 14px;
+
+		&:focus {
+			border-bottom-color: white;
+			ouline: 0;
+			-webkit-box-shadow: none;
+			  box-shadow: none;
+		}
+
+		@include placeholder {
+			color: darken(white, 20%);
+			text-transform: uppercase;
+			font-size: 80%;
+		}
+	}
+	.button {
+		border: 1px solid white;
+		background-color: transparent;
+		color: white;
+		margin-left: 4px;
+	}
+}
+
+*:focus {
+    outline: none;
+}
+.list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.avatar {
+	margin-right: 10px;
+}
+.avatar-circle {
+	border-radius: 50%;
+	height: 80px;
+	width: auto;
+	vertical-align: middle;
+	border: 0;
+}
+
+.employees-view {
+	background-color: $colorGenoa;
+}
+.employees-list {
+	margin-right: 8px;
+}
+.employees-item {
+	padding: 10px;
+	border-bottom: 1px solid $colorJuniper;
+
+	background-color: white;
+}
+.employer {
+	&-name {
+		color: $colorGenoa;
+		font-weight: bold;
+	}
+
+	&-role {
+		color: $colorSushi;
+	}
+}
+
+.skilltags-list {
+
+}
+
+.skilltags-item {
+	display: inline-block;
+
+	border-radius: 4px;
+	padding: 4px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+
+	background-color: $colorJuniper;
+	color: white;
+}
