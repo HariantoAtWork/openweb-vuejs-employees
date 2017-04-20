@@ -6,7 +6,8 @@ Vue.use(Vuex)
 // Initial state
 const state = {
 	activePage: 'home',
-    employees: []
+    employees: [],
+    employee: {}
 }
 
 // Actions
@@ -16,6 +17,9 @@ const actions = {
     },
     SET_EMPLOYEES: ({ commit }, list) => {
         commit('SET_EMPLOYEES', list)
+    },
+    SET_EMPLOYEE: ({ commit }, data) => {
+        commit('SET_EMPLOYEE', data)
     },
 
 }
@@ -27,6 +31,9 @@ const mutations = {
     },
     SET_EMPLOYEES: (state, list) => {
         state.employees = list
+    },
+    SET_EMPLOYEE: (state, data) => {
+        state.employee = data
     },
 
 }

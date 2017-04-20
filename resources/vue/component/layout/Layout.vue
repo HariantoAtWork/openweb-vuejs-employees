@@ -69,6 +69,7 @@
                 class="u-flex u-box  employees-view">
                 <ul class="list employees-list u-flex">
                     <li 
+                        @click="onViewEmployee(item)"
                         class="u-box u-box--align-center employees-item"
                         v-for="item in filteredEmployees">
                         <div class="avatar">
@@ -137,6 +138,14 @@
                 }
             },
 
+            employee: {
+                get () {
+                    return this.$store.state.employee
+                },
+                set (data) {
+                    this.$store.dispatch('SET_EMPLOYEE', data)
+                }
+            },
 
             skills () {
                 var list = this.filteredEmployees;
@@ -241,6 +250,10 @@
 
             onToggleTagDrawer () {
                 this.showTagDrawer = !this.showTagDrawer;
+            },
+
+            onViewEmployee (data) {
+                this.employee = data;
             }
 
         },
