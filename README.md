@@ -11,3 +11,10 @@ A Vue 2 project with:
 - Vuex
 - A fast webpack dev environment
 - An optimized production build
+
+
+Deploy
+
+- `yarn` or `npm install`
+- `npm run start`
+- Check website: http://0.0.0.0:8080
