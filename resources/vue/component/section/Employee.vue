@@ -21,19 +21,23 @@
 			
 		</header>
 		<article class="employee-content">
-			<h3>Bio</h3>
+			<template v-if="employee.bio.length">
+				<h3>Bio</h3>
 
-			<div class="employee-bio">{{ replaceNewlines(employee.bio) }}</div>
+				<div class="employee-bio">{{ replaceNewlines(employee.bio) }}</div>
+			</template>
 
-			<h3>Skills</h3>
+			<template v-if="employee.skills.length > 0">
+				<h3 >Skills</h3>
 
-			<ul class="list skilltags-list">
-				<li 
-					class="skilltags-item" 
-					v-for="skillname in employee.skills">
-					{{skillname}} <span class="fa fa-tag"></span>
-				</li>
-			</ul>
+				<ul class="list skilltags-list">
+					<li 
+						class="skilltags-item" 
+						v-for="skillname in employee.skills">
+						{{skillname}} <span class="fa fa-tag"></span>
+					</li>
+				</ul>
+			</template>
 		</article>
 	</section>
 </template>
