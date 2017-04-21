@@ -30,13 +30,14 @@
 			<template v-if="employee.skills.length > 0">
 				<h3 >Skills</h3>
 
-				<ul class="list skilltags-list">
+				<transition-group tag="ul" name="tween-fade" class="list skilltags-list">
 					<li 
+						:key="index"
 						class="skilltags-item" 
-						v-for="skillname in employee.skills">
+						v-for="(skillname, index) in employee.skills">
 						{{skillname}} <span class="fa fa-tag"></span>
 					</li>
-				</ul>
+				</transition-group>
 			</template>
 		</article>
 	</section>
@@ -85,6 +86,11 @@
 			    }
 
 			    return true;
+			}
+		},
+		watch: {
+			employee (newValue, oldValue) {
+				console.log('Employee - watch employee |',JSON.stringify(newValue), null, 2)
 			}
 		},
 		methods: {

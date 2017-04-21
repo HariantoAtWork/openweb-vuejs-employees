@@ -65,11 +65,12 @@
 		        ref="employees-view"
 		        v-show="!showTagDrawer"
 		        class="u-flex u-box  employees-view">
-		        <ul class="list employees-list u-flex">
+		        <transition-group tag="ul" name="tween-fade" class="list employees-list u-flex">
 		            <li 
 		                @click="onViewEmployee(item)"
 		                class="u-box u-box--align-center employees-item"
-		                v-for="item in filteredEmployees">
+		                v-for="(item, index) in filteredEmployees"
+                        :key="index">
 		                <div class="avatar">
 		                    <img class="avatar-circle" :src="item.profileImage" alt="">
 		                </div>
@@ -81,7 +82,7 @@
 		                    <span class="fa fa-chevron-right"></span>
 		                </div>
 		            </li>
-		        </ul>
+		        </transition-group>
 		    </div>
 
 		</div>
