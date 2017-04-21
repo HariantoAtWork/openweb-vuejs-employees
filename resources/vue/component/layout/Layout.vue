@@ -21,7 +21,11 @@
                         </div>
                         <!-- Employee -->
                         <div class="panel-tab">
-                            
+                            <SectionEmployee
+                                class="u-fill"
+                                ref="section-employee"
+                                :employee="employee"
+                                :onViewEmployees="onViewEmployees"></SectionEmployee>
                         </div>
                     </div>
                 </div>

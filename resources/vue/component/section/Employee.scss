@@ -3,5 +3,30 @@
 @import '../../../scss/init/mixin';
 
 .section-employee {
-	
+	h1,
+	h2 {
+		margin: 0;
+		padding: 0;
+		font-size: 16px;
+	}
+
+	margin-right: 8px;
+}
+.employee {
+	&-header {
+		padding: 8px;
+		border-bottom: 1px solid $colorGenoa;
+	}
+	&-arrow {
+		margin-right: 8px;
+	}
+}
+
+.employee-content {
+	padding: 8px 16px 8px 8px;
+	background-color: white;
+}
+
+.employee-bio {
+
 }
