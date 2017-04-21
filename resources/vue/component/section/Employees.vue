@@ -110,6 +110,9 @@
 			showTagDrawer: false
         }),
         watch: {
+            query (newValue, oldValue) {
+                this.$refs['main-overflow'].scrollTop = 0;
+            },
         	showTagDrawer (newValue, oldValue) {
         	    console.log('watch - showTagDrawer')
         	    this.$refs['main-overflow'].scrollTop = 0;
