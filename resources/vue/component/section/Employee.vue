@@ -23,7 +23,7 @@
 		<article class="employee-content">
 			<h3>Bio</h3>
 
-			<div class="employee-bio">{{ employee.bio }}</div>
+			<div class="employee-bio">{{ replaceNewlines(employee.bio) }}</div>
 
 			<h3>Skills</h3>
 
@@ -81,6 +81,11 @@
 			    }
 
 			    return true;
+			}
+		},
+		methods: {
+			replaceNewlines (string) {
+				return string.replace(/\\n/g, "\n");
 			}
 		}
 		
