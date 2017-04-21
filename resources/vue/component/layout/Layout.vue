@@ -31,6 +31,20 @@
                 </div>
             </div>
         </main>
+
+        <!-- is-desktop -->
+        <main class="layout-main u-box u-flex u-overflow-x u-relative is-desktop">
+            <SectionEmployees
+                class="u-fill"
+                ref="section-employees"
+                :onViewEmployee="onViewEmployee"></SectionEmployees>
+
+            <SectionEmployee
+                class="u-fill u-flex"
+                ref="section-employee"
+                :employee="employee"
+                :onViewEmployees="onViewEmployees"></SectionEmployee>
+        </main>
         
         
     </div>

@@ -77,7 +77,7 @@
 		                    <div class="employer-name">{{ item.name }}</div>
 		                    <div class="employer-role">{{ item.role }}</div>
 		                </div>
-		                <div>
+		                <div class="employee-arrow">
 		                    <span class="fa fa-chevron-right"></span>
 		                </div>
 		            </li>
