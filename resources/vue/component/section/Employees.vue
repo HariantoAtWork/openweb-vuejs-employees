@@ -119,9 +119,6 @@
         	}
         },
         computed: {
-            showOverlay () {
-                return this.$store.state.showOverlay
-            },
             
             activePage: {
                 get () {
