@@ -30,7 +30,7 @@
 				<li 
 					class="skilltags-item" 
 					v-for="skillname in employee.skills">
-					{{skillname}} <span class="fa fa-plus-square"></span>
+					{{skillname}} <span class="fa fa-tag"></span>
 				</li>
 			</ul>
 		</article>
