@@ -10,7 +10,6 @@ module.exports = function (Vue) {
 	// Pages
 	Vue.component('SectionEmployees',   require('../component/section/Employees.vue'));
 	Vue.component('SectionEmployee',    require('../component/section/Employee.vue'));
-	Vue.component('SectionStart',       require('../component/section/Start.vue'));
 	Vue.component('NotFound',           require('../component/section/NotFound.vue'));
 	
 
